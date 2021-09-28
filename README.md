@@ -30,4 +30,4 @@ Thereafter, add all the items scraped, in the 'fixture_item' dictionary, into a 
 ### 4. Scheduling the script using schedule library
 
 ## Final Result!
-![alt text](https://github.com/josshhz11/manunited/blob/images/image.jpg?raw=true)
+![Final Result](/images/Final_Result.jpeg)
