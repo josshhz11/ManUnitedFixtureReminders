@@ -21,4 +21,4 @@ The website we will use to scrape the data for Manchester United Fixtures will b
 ### 3. Automating an email to be sent to you using the smtplib and schedule python libraries
 
 ## Final Result!
-![alt text](https://github.com/josshhz11/manunited/blob/images/image.jpg?raw=true)
+![GitHub Logo](/images/Final_Result.jpeg)
