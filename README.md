@@ -8,7 +8,8 @@ There is 3? parts to this script, whereby I will explain how each works below.
 ### 1. Web Scraping using Selenium and BeautifulSoup
 For this first step, we have to import a few libraries as shown below.
 
-`from selenium import webdriver\
+`from selenium import webdriver
+
  from bs4 import BeautifulSoup`
  
 BeautifulSoup is used to scrape content on html pages. It is done by inspecting the source code from the page and using the elements in the code to find the content to be scraped.
@@ -19,7 +20,9 @@ The website we will use to scrape the data for Manchester United Fixtures will b
 ### 2. Extracting the data using Pandas
 
 Thereafter, add all the items scraped, in the 'fixture_item' dictionary, into a pandas dataframe. Convert all the datetime values to the same standardized pandas format, so all values can be compared to one another. The values obtained would be: the datetime of all the fixtures in the dataframe and the timestamp of the present datetime that the script is running. These values would then be compared to a timedelta function of 7 days, whereby if the fixture datetime is within 7 days of the script running (on a Monday), the fixture would be extracted into another dataframe. This is done as follows:
+
 `solution = df.loc[(df.Date - present_date) <= pd.Timedelta(days = 7)]`
+
 (df here refers to the dataframe, thus df.Date means the dates of all fixtures in the df)
 
 ### 3. Automating an email to be sent to you using the smtplib
