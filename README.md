@@ -10,7 +10,7 @@ The python libraries required can be downloaded by running the command-line argu
 
 `pip install [library name]`
 
-This should be done for the python libraries: selenium, bs4, pandas, datetime, schedule and time. The libraries 'smtplib', 'sys', and 'email.mime' should already be installed in your computer by default.
+This should be done for the following python libraries: selenium, bs4, pandas, datetime, schedule and time. The libraries 'smtplib', 'sys', and 'email.mime' should already be installed in your computer by default.
 
 Next, you require an email account that you'd want to use to send the automated emails. It would be preferred to not use an email with important personal information on it as it would be protected by a lower level of security, since it is being used to automate tasks. For this email account to be valid to use, you need to enable the ['access for less secure apps'](https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mh5zS9ZPAma7M_CaXLxEPVFJZ07y9eaGVEg8U96ww_hpPGPmN48MfAR9Mg3OF0_BFkae8oNH1oSTfzzasMKT98GdwgBA) feature as Google flags this to be a less secure form of login. You should also initialize (an) email recipient(s) for the email to be sent to.
 
@@ -51,9 +51,13 @@ from email.mime.multipart import MIMEMultipart
 ```
 Using the [email.mime](https://docs.python.org/3/library/email.mime.html) library, initialize the MIME type to be either mixed, or alternative, depending on whether the email would contain a mix of plain text and html, or just plain text, respectively. In this case, with the table of fixtures added in the email, the MIME type will be mixed, initialized through the 'MIMEMultipart' function. We can then add the subject, sender and recipient, to the sections of the MIMEMultipart allocated for these variables. MIMEText is used to add the plain text (body of email), as well as the html (table of fixtures). The text is then converted to a string, ready to be sent as a email.
 
-Now, we need to initialize an 'smtp' server through which we will send our email. To do so, we would need to login to the email account of the sender. For security purposes, the password should be keyed in into the command-line argument.
+Now, we need to initialize an ['smtp'](https://automatetheboringstuff.com/2e/chapter18/) server through which we will send our email. To do so, we would need to login to the email account of the sender. For security purposes, the password should be keyed in into the command-line argument.
 
 ### 4. Scheduling the script using schedule library
+
+By importing the [schedule](https://schedule.readthedocs.io/en/stable/) library, we can schedule the program to run, in this case, every Monday at 21:00 HRS. This is through using the code below:
+
+`schedule.every().monday.at('21:00').do(program_code)`
 
 ## Final Result!
 ![Final Result](/images/Final_Result.jpeg)
