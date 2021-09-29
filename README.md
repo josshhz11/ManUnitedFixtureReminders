@@ -34,7 +34,7 @@ The website we will use to scrape the data for [Manchester United](https://en.wi
 
 ### 2. Extracting the data using Pandas
 
-Thereafter, add all the items scraped, in the 'fixture_item' dictionary, into a [pandas](https://pandas.pydata.org/docs/user_guide/index.html) dataframe. Convert all the datetime values to the same standardized pandas format, so all values can be compared to one another. The values obtained would be: the datetime of all the fixtures in the dataframe and the timestamp of the present datetime that the script is running. These values would then be compared to a timedelta function of 7 days, whereby if the fixture datetime is within 7 days of the script running (on a Monday), the fixture would be extracted into another dataframe. This is done as follows:
+Thereafter, add all the items scraped, in the 'fixture_item' dictionary, into a [pandas](https://pandas.pydata.org/docs/user_guide/index.html) dataframe. Convert all the [datetime](https://docs.python.org/3/library/datetime.html#datetime.date.month) values to the same standardized pandas format, so all values can be compared to one another. The values obtained would be: the datetime of all the fixtures in the dataframe and the [timestamp](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html) of the present datetime that the script is running. These values would then be compared to a [timedelta](https://pandas.pydata.org/pandas-docs/stable/user_guide/timedeltas.html) function of 7 days, whereby if the fixture datetime is within 7 days of the script running (on a Monday), the fixture would be extracted into another dataframe. This is done as follows:
 
 `solution = df.loc[(df.Date - present_date) <= pd.Timedelta(days = 7)]`
 
@@ -51,7 +51,7 @@ from email.mime.multipart import MIMEMultipart
 ```
 Using the [email.mime](https://docs.python.org/3/library/email.mime.html) library, initialize the MIME type to be either mixed, or alternative, depending on whether the email would contain a mix of plain text and html, or just plain text, respectively. In this case, with the table of fixtures added in the email, the MIME type will be mixed, initialized through the 'MIMEMultipart' function. We can then add the subject, sender and recipient, to the sections of the MIMEMultipart allocated for these variables. MIMEText is used to add the plain text (body of email), as well as the html (table of fixtures). The text is then converted to a string, ready to be sent as a email.
 
-Now, we need to initialize an ['smtp'](https://automatetheboringstuff.com/2e/chapter18/) server through which we will send our email. To do so, we would need to login to the email account of the sender. For security purposes, the password should be keyed in into the command-line argument.
+Now, we need to initialize an ['smtp'](https://automatetheboringstuff.com/2e/chapter18/) server through which we will send our [email](https://nitratine.net/blog/post/how-to-send-an-email-with-python/). To do so, we would need to login to the email account of the sender. For security purposes, the password should be keyed in into the command-line argument.
 
 ### 4. Scheduling the script using schedule library
 
