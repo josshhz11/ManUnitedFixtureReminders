@@ -7,6 +7,7 @@
 This script requires the installation of numerous applications as well as python libraries. Firstly, a [chrome driver](https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.61/) with a version the same as the Chrome application installed on your computer should be downloaded. A path in your file explorer/finder to the location of the chrome driver should be initialized in the code.
 
 The python libraries required can be downloaded by running the command-line arguments in the terminal:
+
 `pip install [library name]`
 
 This should be done for the python libraries: selenium, bs4, pandas, datetime, schedule and time. The libraries 'smtplib', 'sys', and 'email.mime' should already be installed in your computer by default.
