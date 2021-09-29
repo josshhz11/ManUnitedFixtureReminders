@@ -28,9 +28,9 @@ from bs4 import BeautifulSoup
 ```
  
 [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) is used to scrape content on html pages. It is done by inspecting the source code from the page and using the elements in the code to find the content to be scraped.
-However, most websites are loaded using [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), which means the page needs to be dynamically loaded before the content you want to scrape shows up. Hence, selenium is used to automatically load the web page using Chrome in this case (can also be Firefox or other web browsers) with the help of a Chrome driver. To do so, a [chrome driver](https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.61/) of the same version as the chrome application needs to be installed on the computer.
+However, most websites are loaded using [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), which means the page needs to be dynamically loaded before the content you want to scrape shows up. Hence, selenium is used to automatically load the web page using Chrome in this case (can also be [Firefox](https://github.com/mozilla/geckodriver/releases) or other web browsers) with the help of a Chrome driver. To do so, a [chrome driver](https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.61/) of the same version as the chrome application needs to be installed on the computer.
 
-The website we will use to scrape the data for Manchester United Fixtures will be [ESPN](https://www.espn.com/soccer/team/fixtures/_/id/360/manchester-united). Add all the items scraped to a dictionary 'fixture_item' where the items scraped are: 'Fixture', 'Day', 'Date', 'Competition'.
+The website we will use to scrape the data for [Manchester United](https://en.wikipedia.org/wiki/Manchester_United_F.C.) Fixtures will be [ESPN](https://www.espn.com/soccer/team/fixtures/_/id/360/manchester-united). Add all the items scraped to a dictionary 'fixture_item' where the items scraped are: 'Fixture', 'Day', 'Date', 'Competition'.
 
 ### 2. Extracting the data using Pandas
 
