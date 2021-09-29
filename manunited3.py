@@ -37,7 +37,7 @@ def program_code():
         date = rows_of_matches[0].div.text
         # Remove comma in date text so 
         date = date.replace(',', '')
-        # date_with_year 
+        
         time = rows_of_matches[4].a.text
 
         day = date.split(' ', 1)[0]
@@ -74,7 +74,7 @@ def program_code():
 
     df = pd.DataFrame(fixture_list)
     df['Date'] = pd.to_datetime(df.Date)
-    #print(df)
+
     # present date timestamp
     present_date = pd.Timestamp('today')
     
