@@ -4,7 +4,16 @@
 
 ## How can we use this script?
 
+This script requires the installation of numerous applications as well as python libraries. Firstly, a [chrome driver](https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.61/) with a version the same as the Chrome application installed on your computer should be downloaded. A path in your file explorer/finder to the location of the chrome driver should be initialized in the code.
 
+The python libraries required can be downloaded by running the command-line arguments in the terminal:
+`pip install [library name]`
+
+This should be done for the python libraries: selenium, bs4, pandas, datetime, schedule and time. The libraries 'smtplib', 'sys', and 'email.mime' should already be installed in your computer by default.
+
+Next, you require an email account that you'd want to use to send the automated emails. It would be preferred to not use an email with important personal information on it as it would have a lower level of security, since it is being used to automate tasks. For this email account to be valid to use, you need to enable the [access for less secure apps'](https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mh5zS9ZPAma7M_CaXLxEPVFJZ07y9eaGVEg8U96ww_hpPGPmN48MfAR9Mg3OF0_BFkae8oNH1oSTfzzasMKT98GdwgBA) feature as Google flags this to be a less secure form of login. You should also initialize (an) email recipient(s) for the email to be sent to.
+
+Afterwards, you should be good to go!
 
 ## How does this script work?
 There is 4 parts to this script, whereby I will explain how each works below.
