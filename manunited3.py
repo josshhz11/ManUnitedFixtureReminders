@@ -83,8 +83,8 @@ def program_code():
     
     # Converting table to html format to pass into email
     html_table = solution.to_html()
-    sender = "automationsn1per0@gmail.com"
-    recipient = "liquidstew2k@gmail.com"
+    sender = "{sender email}"
+    recipient = "{recipient email}"
     subject = 'Manchester United Fixtures'
 
     # Create message container - the correct MIME type is mixed/alternative.
@@ -107,7 +107,7 @@ def program_code():
     server.ehlo
     server.starttls()
     # For safety of email password, input password into command line after 'python3 manunited3.py'
-    server.login('automationsn1per0@gmail.com', sys.argv[1])
+    server.login('{sender email}', sys.argv[1])
 
     server.sendmail(sender, recipient, body)
 
