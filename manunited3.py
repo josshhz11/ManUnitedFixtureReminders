@@ -18,7 +18,7 @@ def program_code():
     if (len(sys.argv) != 2 and len(sys.argv) != 3):
         raise Exception('Usage: python3 manunited3.py {email password} (&)')
 
-    PATH = '/Users/josshhz11/Downloads/chromedriver'
+    PATH = '{Path to ChromeDriver Application}'
     url = 'https://www.espn.com/soccer/team/fixtures/_/id/360/manchester-united'
 
     driver = webdriver.Chrome(PATH)
