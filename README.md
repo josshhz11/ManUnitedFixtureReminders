@@ -1,6 +1,9 @@
 # 'Manchester United Weekly Fixture Updates'
 
-'Manchester United Weekly Fixture Updates' is a Python script that automatically sends an email to myself every Monday with a table detailing the Manchester United Fixtures of the upcoming week. This script was made for my personal use, having learnt some web-scraping and wanting to try it out with a real-life application, helping me keep track of the upcoming football matches for the week for the football club I support, Manchester United.
+![image](https://github.com/user-attachments/assets/5eea10b9-8971-409f-9b5e-b47b9769996f)
+
+
+'Manchester United Weekly Fixture Updates' is a Python script that automatically sends an email to myself (and other recipients) every Monday with a table detailing the Manchester United Fixtures of the upcoming week. This script was made for my personal use, having learnt some web-scraping and wanting to try it out with a real-life application, helping me keep track of the upcoming football matches for the week for the football club I support, Manchester United.
 
 ## How can we use this script?
 
@@ -19,7 +22,7 @@ Afterwards, you should be good to go!
 ## How does this script work?
 There are 4 parts to this script, whereby I will explain how each works below.
 
-### 1. Web Scraping using Selenium and BeautifulSoup
+### 1. Web Scraping using 'Selenium' and 'BeautifulSoup' libraries
 For this first step, we have to import a few libraries as shown below.
 
 ```
@@ -27,12 +30,12 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 ```
  
-[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) is used to scrape content on html pages. It is done by inspecting the source code from the page and using the elements in the code to find the content to be scraped.
+[BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) is used to scrape content on HTML pages. It is done by inspecting the source code from the page and using the elements in the code to find the content to be scraped.
 However, most websites are loaded using [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript), which means the page needs to be dynamically loaded before the content you want to scrape shows up. Hence, selenium is used to automatically load the web page using Chrome in this case (can also be [Firefox](https://github.com/mozilla/geckodriver/releases) or other web browsers) with the help of a Chrome driver. To do so, a [chrome driver](https://chromedriver.storage.googleapis.com/index.html?path=94.0.4606.61/) of the same version as the chrome application needs to be installed on the computer.
 
 The website we will use to scrape the data for [Manchester United](https://en.wikipedia.org/wiki/Manchester_United_F.C.) Fixtures will be [ESPN](https://www.espn.com/soccer/team/fixtures/_/id/360/manchester-united). Add all the items scraped to a dictionary 'fixture_item' where the items scraped are: 'Fixture', 'Day', 'Date', and 'Competition'.
 
-### 2. Extracting the data using Pandas
+### 2. Extracting the data using 'Pandas' library
 
 Thereafter, add all the items scraped, in the 'fixture_item' dictionary, into a [pandas](https://pandas.pydata.org/docs/user_guide/index.html) dataframe. Convert all the [datetime](https://docs.python.org/3/library/datetime.html#datetime.date.month) values to the same standardized pandas format, so all values can be compared to one another. The values obtained would be: the datetime of all the fixtures in the dataframe and the [timestamp](https://pandas.pydata.org/docs/reference/api/pandas.Timestamp.html) of the present datetime that the script is running. These values would then be compared to a [timedelta](https://pandas.pydata.org/pandas-docs/stable/user_guide/timedeltas.html) function of 7 days, whereby if the fixture datetime is within 7 days of the script running (on a Monday), the fixture would be extracted into another dataframe. This is done as follows:
 
@@ -40,7 +43,7 @@ Thereafter, add all the items scraped, in the 'fixture_item' dictionary, into a 
 
 (df here refers to the dataframe, thus df.Date means the dates of all fixtures in the df)
 
-### 3. Automating an email to be sent to you using the smtplib
+### 3. Automating an email to be sent to you using the 'smtplib' library
 
 For this section, we have to first convert the extracted fixtures for the upcoming week currently in the pandas dataframe format into a HTML format so it can be sent in an email. The following libraries required for this section are as follows:
 ```
@@ -49,11 +52,11 @@ import sys
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 ```
-Using the [email.mime](https://docs.python.org/3/library/email.mime.html) library, initialize the MIME type to be either mixed, or alternative, depending on whether the email would contain a mix of plain text and html, or just plain text, respectively. In this case, with the table of fixtures added in the email, the MIME type will be mixed, initialized through the 'MIMEMultipart' function. We can then add the subject, sender and recipient, to the sections of the MIMEMultipart allocated for these variables. MIMEText is used to add the plain text (body of email), as well as the HTML (table of fixtures). The text is then converted to a string, ready to be sent as an email.
+Using the [email.mime](https://docs.python.org/3/library/email.mime.html) library, initialize the MIME type to be either mixed, or alternative, depending on whether the email would contain a mix of plain text and HTML, or just plain text, respectively. In this case, with the table of fixtures added in the email, the MIME type will be mixed, initialized through the 'MIMEMultipart' function. We can then add the subject, sender and recipient, to the sections of the MIMEMultipart allocated for these variables. MIMEText is used to add the plain text (body of email), as well as the HTML (table of fixtures). The text is then converted to a string, ready to be sent as an email.
 
 Now, we need to initialize an ['smtp'](https://automatetheboringstuff.com/2e/chapter18/) server through which we will send our [email](https://nitratine.net/blog/post/how-to-send-an-email-with-python/). To do so, we would need to login to the email account of the sender. For security purposes, the password should be keyed in into the command-line argument.
 
-### 4. Scheduling the script using schedule library
+### 4. Scheduling the script using 'schedule' library
 
 By importing the [schedule](https://schedule.readthedocs.io/en/stable/) library, we can schedule the program to run, in this case, every Monday at 21:00 HRS. This is through using the code below:
 
